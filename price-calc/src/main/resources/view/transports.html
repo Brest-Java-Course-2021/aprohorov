@@ -5,8 +5,8 @@
 
         .buttonAdd {
             background-color: #4CAF50;
-            border: none;
             color: white;
+            border-radius: 10pt;
             padding: 12px 25px;
             text-align: center;
             font-size: 15px;
@@ -16,7 +16,7 @@
 
         div{
             width: 200px;
-            height: 45px;
+            height: 60px;
         }
 
         .aEdit{
@@ -38,12 +38,14 @@
             border: 3px solid dimgray;
             background-color: darkgoldenrod;
             font-size: 25px;
+            padding: 6px;
         }
 
         td {
             border: 1px solid dimgray;
             text-align: center;
             font-size: 18px;
+            padding: 6px;
         }
 
     </style>
@@ -56,7 +58,7 @@
 <header>
     <nav>
         <a href="startpage.html" title="Back to start page">Start page</a> |
-        <a href="drivers.html" title="go to employees">Drivers</a>
+        <a href="drivers.html" title="go to drivers">Drivers</a>
     </nav>
 
 
@@ -64,9 +66,7 @@
     </h1>
 
     <div>
-    <form action="transport_edit.html">
-        <button class ="buttonAdd" type="submit" >Add new transport</button>
-    </form>
+        <a href="transport_edit.html"><button class ="buttonAdd" type="submit" >Add new transport</button></a>
     </div>
 
 </header>

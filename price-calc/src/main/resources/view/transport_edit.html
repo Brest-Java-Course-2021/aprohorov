@@ -9,8 +9,8 @@
         }
 
         .buttonSave {
-            background-color: #4CAF50;
-            border: none;
+            background-color: olivedrab;
+            border-radius:10px;
             color: white;
             padding: 12px 25px;
             text-align: center;
@@ -18,10 +18,13 @@
             cursor: pointer;
             float: right;
         }
+        .buttonSave:hover {
+            background-color: #4CAF50;
+        }
 
         .buttonBack {
             background-color: crimson;
-            border: none;
+            border-radius:10px;
             color: black;
             padding: 12px 25px;
             text-align: center;
@@ -53,8 +56,8 @@
             </div>
 
             <div>
-                <label for="count">Driver</label>
-                <input id="count" type="text">
+                <label for="driver">Driver</label>
+                <input id="driver"  name="driver" type="text">
             </div>
 
             <div>
@@ -69,22 +72,22 @@
 
             <div>
                 <label for="capacity">Capacity</label>
-                <input id="capacity" type="number">
+                <input id="capacity" name="capacity" type="number">
             </div>
 
             <div>
                 <label for="date">Date of manufacture</label>
-                <input  id="date" type="date"/>
+                <input  id="date" name="date" type="date"/>
             </div>
 
             <div>
                 <form action="transports.html">
-                    <button class ="buttonSave" type="button"  onclick="alert('Transport create!!')" >Save</button>
+                    <button class ="buttonSave" type="submit"  onclick="alert('Transport create!!')" >Save</button>
                 </form>
 
-                <form action="transports.html">
-                    <button class ="buttonBack" type="submit" >Back</button>
-                </form>
+
+                <a href="transports.html" ><button class ="buttonBack" type="button" >Back</button></a>
+
             </div>
 
         </fieldset>
