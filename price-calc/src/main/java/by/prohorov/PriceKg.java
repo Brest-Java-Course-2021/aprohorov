@@ -6,11 +6,11 @@ package by.prohorov;
 
 
 public enum PriceKg {
-    LIGHT(10), AVERAGE(20),HARD(35);
+    LIGHT(10), AVERAGE(20), HARD(35);
 
-    public final Integer cost;
+    public final double cost;
 
-    private PriceKg(Integer cost) {
+    private PriceKg(double cost) {
         this.cost = cost;
     }
 }
