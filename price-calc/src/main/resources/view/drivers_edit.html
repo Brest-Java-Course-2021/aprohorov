@@ -10,7 +10,7 @@
 
         .buttonSave {
             background-color: olivedrab;
-            border-radius:10px;
+            border-radius: 10px;
             color: white;
             padding: 12px 25px;
             text-align: center;
@@ -18,13 +18,14 @@
             cursor: pointer;
             float: right;
         }
+
         .buttonSave:hover {
             background-color: #4CAF50;
         }
 
         .buttonBack {
             background-color: crimson;
-            border-radius:10px;
+            border-radius: 10px;
             color: black;
             padding: 12px 25px;
             text-align: center;
@@ -53,26 +54,27 @@
 
         <div>
             <label for="driver">Full Name</label>
-            <input id="driver"  name="fullName" type="text">
+            <input id="driver" name="fullName" type="text">
         </div>
 
         <div>
             <label for="address">Address</label>
-<!--   TODO create address         -->
             <input id="address" name="address" type="text">
         </div>
 
         <div>
             <label for="date">Birth Date</label>
-            <input  id="date" name="date" type="date"/>
+            <input id="date" name="date" type="date"/>
         </div>
 
         <div>
             <form action="drivers.html">
-                <button class ="buttonSave" type="submit"  onclick="alert('Driver create!!')" >Save</button>
+                <button class="buttonSave" type="submit" onclick="alert('Driver create!!')">Save</button>
             </form>
 
-            <a href="drivers.html" ><button class ="buttonBack" type="button" >Back</button></a>
+            <a href="drivers.html">
+                <button class="buttonBack" type="button">Back</button>
+            </a>
         </div>
 
     </fieldset>
