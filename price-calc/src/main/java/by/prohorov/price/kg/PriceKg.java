@@ -1,4 +1,4 @@
-package by.prohorov;
+package by.prohorov.price.kg;
 
 /**
  * Created by Artsiom Prokharau 05.02.2021
@@ -10,7 +10,7 @@ public enum PriceKg {
 
     public final double cost;
 
-    private PriceKg(double cost) {
+    PriceKg(double cost) {
         this.cost = cost;
     }
 }
