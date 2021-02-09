@@ -7,17 +7,17 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by Artsiom Prokharau 08.02.2021
+ * Created by Artsiom Prokharau 09.02.2021
  */
 
-public class CostByPriceKgUseFile implements CostByPriceKg {
+public class CostByPriceKgUseProperties  implements CostByPriceKg{
 
     private double costWeight;
 
-    public CostByPriceKgUseFile() {
+    public CostByPriceKgUseProperties() {
     }
 
-    public CostByPriceKgUseFile(Validator validator) {
+    public CostByPriceKgUseProperties(Validator validator) {
         this.costWeight = validator.checkValue("Please, enter weight (kg) : =>  ");
     }
 
@@ -33,8 +33,8 @@ public class CostByPriceKgUseFile implements CostByPriceKg {
     public double costByPriceWeightInKg() {
         Properties price = new Properties();
         try {
-            ClassLoader classLoader = CostByPriceKgUseFile.class.getClassLoader();
-            InputStream is = classLoader.getResourceAsStream("price_kg.properties");
+            ClassLoader classLoader = CostByPriceKgUseProperties.class.getClassLoader();
+            InputStream is = classLoader.getResourceAsStream("price/price_kg.properties");
             price.load(is);
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,3 +48,4 @@ public class CostByPriceKgUseFile implements CostByPriceKg {
         }
     }
 }
+
