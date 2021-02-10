@@ -1,34 +1,35 @@
 package by.prohorov.validate;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 /**
  * Created by Artsiom Prokharau 08.02.2021
  */
 
-public class ValidatorImpl implements Validator {
+public class ValidatorUserImpl implements ValidatorUser {
 
     private Scanner scanner;
 
 
-    public ValidatorImpl() {
+    public ValidatorUserImpl() {
         this.scanner = new Scanner(System.in);
     }
 
     @Override
-    public double checkValue(String message) {
+    public BigDecimal checkValue(String message) {
         System.out.print(message);
-        double value;
+        BigDecimal value;
         do {
-            while (!scanner.hasNextDouble()) {
+            while (!scanner.hasNextBigDecimal()) {
                 System.out.println("Incorrect value! Please enter now) ");
                 scanner.next();
             }
-            value = scanner.nextDouble();
-            if (value < 1) {
+            value = scanner.nextBigDecimal();
+            if (value.intValueExact() < 1) {
                 System.out.println("Incorrect : value < 0");
             }
-        } while (value < 1);
+        } while (value.intValueExact() < 1);
 
         return value;
     }

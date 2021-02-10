@@ -1,41 +1,41 @@
 package by.prohorov.price.entity;
 
-import java.util.ArrayList;
-
 /**
  * Created by Artsiom Prokharau 09.02.2021
  */
 
 public class Price {
 
-    private Integer light;
-    private Integer average;
-    private Integer hard;
+    private String light;
+    private String average;
+    private String hard;
 
     public Price() {
     }
 
-    public Integer getLight() {
+    public String getLight() {
         return light;
     }
 
-    public void setLight(Integer light) {
+    public void setLight(String light) {
         this.light = light;
     }
 
-    public Integer getAverage() {
+    public String getAverage() {
         return average;
     }
 
-    public void setAverage(Integer average) {
+    public void setAverage(String average) {
         this.average = average;
     }
 
-    public Integer getHard() {
+    public String getHard() {
         return hard;
     }
 
-    public void setHard(Integer hard) {
+    public void setHard(String hard) {
         this.hard = hard;
     }
 }
+
+
