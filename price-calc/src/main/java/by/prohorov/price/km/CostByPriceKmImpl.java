@@ -1,6 +1,8 @@
 package by.prohorov.price.km;
 
-import by.prohorov.validate.Validator;
+import by.prohorov.validate.ValidatorUser;
+
+import java.math.BigDecimal;
 
 /**
  * Created by Artsiom Prokharau 08.02.2021
@@ -8,25 +10,27 @@ import by.prohorov.validate.Validator;
 
 public class CostByPriceKmImpl implements CostByPriceKm {
 
-    private double costDistance;
+    private static final BigDecimal ONE_KM = new BigDecimal("0.25");
+
+    private BigDecimal costDistance;
 
     public CostByPriceKmImpl() {
     }
 
-    public CostByPriceKmImpl(Validator validator) {
-        this.costDistance = validator.checkValue("Please, enter distance (km) : =>  ");
+    public CostByPriceKmImpl(ValidatorUser validatorUser) {
+        this.costDistance = validatorUser.checkValue("Please, enter distance (km) : =>  ");
     }
 
-    public double getCostDistance() {
+    public BigDecimal getCostDistance() {
         return costDistance;
     }
 
-    public void setCostDistance(double costDistance) {
+    public void setCostDistance(BigDecimal costDistance) {
         this.costDistance = costDistance;
     }
 
     @Override
-    public double costByPriceInKm() {
-        return costDistance * ONE_KM;
+    public BigDecimal costByPriceInKm() {
+        return costDistance.multiply(ONE_KM);
     }
 }

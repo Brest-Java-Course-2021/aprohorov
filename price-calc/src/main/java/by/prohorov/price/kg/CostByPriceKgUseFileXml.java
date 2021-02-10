@@ -1,46 +1,35 @@
 package by.prohorov.price.kg;
 
-import by.prohorov.price.entity.Price;
 import by.prohorov.price.parser.Jackson;
-import by.prohorov.validate.Validator;
+import by.prohorov.validate.ValidatorUser;
 
-import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * Created by Artsiom Prokharau 09.02.2021
  */
 
-public class CostByPriceKgUseFileXml implements CostByPriceKg {
+public class CostByPriceKgUseFileXml extends CostByPriceKgAll {
 
-    private double costWeight;
+    private Jackson jackson;
+
+    public CostByPriceKgUseFileXml(ValidatorUser validatorUser) {
+        super(validatorUser);
+        jackson = new Jackson();
+    }
 
     public CostByPriceKgUseFileXml() {
-    }
-
-    public CostByPriceKgUseFileXml(Validator validator) {
-        this.costWeight = validator.checkValue("Please, enter weight (kg) : =>  ");
-    }
-
-    public double getCostWeight() {
-        return costWeight;
-    }
-
-    public void setCostWeight(double costWeight) {
-        this.costWeight = costWeight;
+        jackson = new Jackson();
     }
 
     @Override
-    public double costByPriceWeightInKg() {
-        try {
-            if (costWeight < 4) {
-                costWeight = Jackson.loaderXmlFile().getLight();
-            } else if (costWeight > 10) {
-                costWeight = Jackson.loaderXmlFile().getHard();
-            } else {
-                costWeight = Jackson.loaderXmlFile().getAverage();
-            }
-        } catch (IOException ex) {
-            ex.getMessage();
+    public BigDecimal costByPriceWeightInKg() {
+        if (costWeight.intValueExact() < 4) {
+            costWeight = validatorPrice.checkValueForPrice(jackson.loaderXmlFile().getLight());
+        } else if (costWeight.intValueExact() > 10) {
+            costWeight = validatorPrice.checkValueForPrice(jackson.loaderXmlFile().getHard());
+        } else {
+            costWeight = validatorPrice.checkValueForPrice(jackson.loaderXmlFile().getAverage());
         }
         return costWeight;
     }

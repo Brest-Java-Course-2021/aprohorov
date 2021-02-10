@@ -7,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.math.BigDecimal;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,17 +28,17 @@ class CalculateImplTest {
     @ParameterizedTest
     @MethodSource("checkValue")
     void costOfDelivery_checkNeededResult(double distance, double weight, double result) {
-        costKm.setCostDistance(distance);
-        costKg.setCostWeight(weight);
-        assertEquals(result, calculate.costOfDelivery());
+        costKm.setCostDistance(new BigDecimal(distance));
+        costKg.setCostWeight(new BigDecimal(weight));
+        assertEquals(result, calculate.costOfDelivery().doubleValue());
     }
 
 
     private static Stream<Arguments> checkValue() {
         return Stream.of(
-                Arguments.of(25.3, 45.2, 41.325),
-                Arguments.of(45.3, 75.2, 46.325),
-                Arguments.of(34.2, 45.2, 43.55),
+                Arguments.of(25, 41,41.25),
+                Arguments.of(453, 75, 148.25),
+                Arguments.of(34, 45, 43.5),
                 Arguments.of(10, 10, 22.5)
         );
     }

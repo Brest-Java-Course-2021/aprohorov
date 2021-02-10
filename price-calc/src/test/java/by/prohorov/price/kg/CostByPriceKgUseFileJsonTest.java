@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.math.BigDecimal;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,8 +24,9 @@ class CostByPriceKgUseFileJsonTest {
     @ParameterizedTest
     @MethodSource()
     void costByPriceWeightInKg_returnValues(double value, double result) {
-        costKg.setCostWeight(value);
-        assertEquals(costKg.costByPriceWeightInKg(), result);
+        BigDecimal convertToDecimal = new BigDecimal(value);
+        costKg.setCostWeight(convertToDecimal);
+        assertEquals(costKg.costByPriceWeightInKg().doubleValue(), result);
     }
 
     private static Stream<Arguments> costByPriceWeightInKg_returnValues() {

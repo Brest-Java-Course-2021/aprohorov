@@ -1,38 +1,31 @@
 package by.prohorov.price.kg;
 
-import by.prohorov.validate.Validator;
+import by.prohorov.price.kg.enum_price.PriceKg;
+import by.prohorov.validate.ValidatorUser;
+
+import java.math.BigDecimal;
 
 /**
  * Created by Artsiom Prokharau 08.02.2021
  */
 
-public class CostByPriceKgUseEnum implements CostByPriceKg {
-
-    private double costWeight;
+public class CostByPriceKgUseEnum extends CostByPriceKgAll {
 
     public CostByPriceKgUseEnum() {
     }
 
-    public CostByPriceKgUseEnum(Validator validator) {
-        this.costWeight = validator.checkValue("Please, enter weight (kg) : =>  ");
-    }
-
-    public double getCostWeight() {
-        return costWeight;
-    }
-
-    public void setCostWeight(double costWeight) {
-        this.costWeight = costWeight;
+    public CostByPriceKgUseEnum(ValidatorUser validatorUser) {
+        super(validatorUser);
     }
 
     @Override
-    public double costByPriceWeightInKg() {
-        if (costWeight < 4) {
-            costWeight = PriceKg.LIGHT.cost;
-        } else if (costWeight > 10) {
-            costWeight = PriceKg.HARD.cost;
+    public BigDecimal costByPriceWeightInKg() {
+        if (costWeight.intValueExact() < 4) {
+            costWeight = validatorPrice.checkValueForPrice(PriceKg.LIGHT.cost);
+        } else if (costWeight.intValueExact() > 10) {
+            costWeight = validatorPrice.checkValueForPrice(PriceKg.HARD.cost);
         } else {
-            costWeight = PriceKg.AVERAGE.cost;
+            costWeight = validatorPrice.checkValueForPrice(PriceKg.AVERAGE.cost);
         }
         return costWeight;
     }

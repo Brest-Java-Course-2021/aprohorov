@@ -13,18 +13,31 @@ import java.io.InputStream;
 
 public class Jackson {
 
-    public static Price loaderXmlFile() throws IOException {
+    private String pathXml = "price/price_kg.xml";
+    private String pathJson = "price/price_kg.json";
+
+    public Price loaderXmlFile() {
         XmlMapper xmlMapper = new XmlMapper();
         ClassLoader classLoader = Jackson.class.getClassLoader();
-        InputStream ir = classLoader.getResourceAsStream("price/price_kg.xml");
-        return xmlMapper.readValue(ir, Price.class);
+        InputStream ir = classLoader.getResourceAsStream(pathXml);
+        try {
+            return xmlMapper.readValue(ir, Price.class);
+            //Todo refactor
+        } catch (IOException e) {
+            System.err.println("File not found");
+        }
+        return null;
     }
 
-    public static Price loaderJsonFile() throws IOException {
+    public Price loaderJsonFile() {
         ObjectMapper objectMapper = new ObjectMapper();
         ClassLoader classLoader = Jackson.class.getClassLoader();
-        InputStream ir = classLoader.getResourceAsStream("price/price_kg.json");
-        return objectMapper.readValue(ir, Price.class);
-
+        try (InputStream ir = classLoader.getResourceAsStream(pathJson)) {
+            return objectMapper.readValue(ir, Price.class);
+            //Todo refactor
+        } catch (IOException e) {
+            System.err.println("File not found");
+        }
+        return null;
     }
 }

@@ -1,5 +1,7 @@
 package by.prohorov.price.km;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Artsiom Prokharau 08.02.2021
  */
@@ -7,7 +9,5 @@ package by.prohorov.price.km;
 
 public interface CostByPriceKm {
 
-    double ONE_KM = 0.25;
-
-    double costByPriceInKm();
+    BigDecimal costByPriceInKm();
 }
