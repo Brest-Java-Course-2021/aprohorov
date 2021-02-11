@@ -10,13 +10,10 @@ import java.math.BigDecimal;
 
 public class ValidatorPriceImpl implements ValidatorPrice {
 
-    private String regex = "[\\d*\\.?\\d*]+";
-
-
     @Override
     public BigDecimal checkValueForPrice(String priceValue) {
 
-        if (priceValue.matches("[\\d*.?]*")) {
+        if (priceValue.matches("^(?=\\s*\\S)\\d*\\.?\\d*")) {
             return new BigDecimal(priceValue);
         } else {
             throw new ReadValueInPriceException("Incorrect value in File. Correct please and return");

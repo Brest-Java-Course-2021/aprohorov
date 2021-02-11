@@ -9,4 +9,11 @@ public class ReadValueInPriceException extends RuntimeException {
     public ReadValueInPriceException(String message) {
         super(message);
     }
+
+    @Override
+    public String toString() {
+        return getLocalizedMessage();
+    }
 }
+
+
