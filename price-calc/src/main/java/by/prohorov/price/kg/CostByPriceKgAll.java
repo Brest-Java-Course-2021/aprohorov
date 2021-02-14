@@ -13,19 +13,13 @@ import java.math.BigDecimal;
 public abstract class CostByPriceKgAll implements CostByPriceKg {
 
     protected BigDecimal costWeight;
-    protected ValidatorPrice validatorPrice;
+    protected ValidatorPrice validatorPrice = new ValidatorPriceImpl();
 
     protected CostByPriceKgAll(ValidatorUser validatorUser) {
         this.costWeight = validatorUser.checkValue("Please, enter weight (kg) : =>  ");
-        this.validatorPrice = new ValidatorPriceImpl();
     }
 
     protected CostByPriceKgAll() {
-        this.validatorPrice = new ValidatorPriceImpl();
-    }
-
-    public BigDecimal getCostWeight() {
-        return costWeight;
     }
 
     public void setCostWeight(BigDecimal costWeight) {

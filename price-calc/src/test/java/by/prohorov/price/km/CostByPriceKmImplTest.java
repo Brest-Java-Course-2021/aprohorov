@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class CostByPriceKmImplTest {
 
@@ -15,11 +16,11 @@ class CostByPriceKmImplTest {
     void init() {
         costKm = new CostByPriceKmImpl();
 
-}
+    }
 
     @Test
     void costByPriceInKm_returnValue() {
-        
+
         costKm.setCostDistance(new BigDecimal(25));
         BigDecimal value = costKm.costByPriceInKm();
         assertEquals(6.25, value.doubleValue());

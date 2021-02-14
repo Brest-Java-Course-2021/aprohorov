@@ -13,19 +13,14 @@ import java.util.Properties;
 
 public class ReadProperties {
 
-    private static final String PATH_PROPERTIES = "price/price_kg.properties";
-
-    public Properties loaderPropertiesFile() {
+    public Properties loaderPropertiesFile(String path) {
         Properties price = new Properties();
         ClassLoader classLoader = CostByPriceKgUseProperties.class.getClassLoader();
-        try (InputStream is = classLoader.getResourceAsStream(PATH_PROPERTIES)) {
-            if (is == null) {
-                throw new ReadFileException("File not Found");
-            }
+        try (InputStream is = classLoader.getResourceAsStream(path)) {
             price.load(is);
-        } catch (IOException ex) {
-            ex.printStackTrace();
+            return price;
+        } catch (NullPointerException | IOException ex) {
+            throw new ReadFileException("File not found. Please correct path to file. Current path => " + path);
         }
-        return price;
     }
 }

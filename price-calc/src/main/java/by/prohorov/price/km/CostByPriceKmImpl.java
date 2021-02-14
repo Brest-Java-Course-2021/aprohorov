@@ -21,10 +21,6 @@ public class CostByPriceKmImpl implements CostByPriceKm {
         this.costDistance = validatorUser.checkValue("Please, enter distance (km) : =>  ");
     }
 
-    public BigDecimal getCostDistance() {
-        return costDistance;
-    }
-
     public void setCostDistance(BigDecimal costDistance) {
         this.costDistance = costDistance;
     }

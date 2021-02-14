@@ -20,13 +20,12 @@ public class CostByPriceKgUseEnum extends CostByPriceKgAll {
 
     @Override
     public BigDecimal costByPriceWeightInKg() {
-        if (costWeight.intValueExact() < 4) {
-            costWeight = validatorPrice.checkValueForPrice(PriceKg.LIGHT.cost);
-        } else if (costWeight.intValueExact() > 10) {
-            costWeight = validatorPrice.checkValueForPrice(PriceKg.HARD.cost);
+        if (costWeight.doubleValue() < 4) {
+            return validatorPrice.checkValueForPrice(PriceKg.LIGHT.cost);
+        } else if (costWeight.doubleValue() > 10) {
+            return validatorPrice.checkValueForPrice(PriceKg.HARD.cost);
         } else {
-            costWeight = validatorPrice.checkValueForPrice(PriceKg.AVERAGE.cost);
+            return validatorPrice.checkValueForPrice(PriceKg.AVERAGE.cost);
         }
-        return costWeight;
     }
 }

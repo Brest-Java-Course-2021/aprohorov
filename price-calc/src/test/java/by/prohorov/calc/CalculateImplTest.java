@@ -36,7 +36,7 @@ class CalculateImplTest {
 
     private static Stream<Arguments> checkValue() {
         return Stream.of(
-                Arguments.of(25, 41,41.25),
+                Arguments.of(25, 41, 41.25),
                 Arguments.of(453, 75, 148.25),
                 Arguments.of(34, 45, 43.5),
                 Arguments.of(10, 10, 22.5)

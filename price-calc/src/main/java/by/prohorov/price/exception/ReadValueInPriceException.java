@@ -10,10 +10,6 @@ public class ReadValueInPriceException extends RuntimeException {
         super(message);
     }
 
-    @Override
-    public String toString() {
-        return getLocalizedMessage();
-    }
 }
 
 
