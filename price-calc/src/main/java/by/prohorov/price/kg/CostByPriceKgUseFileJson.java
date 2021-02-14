@@ -12,33 +12,26 @@ import java.math.BigDecimal;
 
 public class CostByPriceKgUseFileJson extends CostByPriceKgAll {
 
-
-    private Jackson jackson;
-    private ObjectMapper oMapper;
+    private Jackson jackson = new Jackson();
+    private ObjectMapper oMapper = new ObjectMapper();
+    String pathJson = "price/price_kg.json";
 
     public CostByPriceKgUseFileJson(ValidatorUser validatorUser) {
         super(validatorUser);
-        jackson = new Jackson();
-
     }
 
     public CostByPriceKgUseFileJson() {
-        jackson = new Jackson();
-        oMapper = new ObjectMapper();
     }
 
 
     @Override
     public BigDecimal costByPriceWeightInKg() {
-        String pathJson = "price/price_kg.json";
-
-        if (costWeight.intValueExact() < 4) {
-            costWeight = validatorPrice.checkValueForPrice(jackson.loaderFile(oMapper, pathJson).getLight());
-        } else if (costWeight.intValueExact() > 10) {
-            costWeight = validatorPrice.checkValueForPrice(jackson.loaderFile(oMapper, pathJson).getHard());
+        if (costWeight.doubleValue() < 4) {
+            return validatorPrice.checkValueForPrice(jackson.loaderFile(oMapper, pathJson).getLight());
+        } else if (costWeight.doubleValue() > 10) {
+            return validatorPrice.checkValueForPrice(jackson.loaderFile(oMapper, pathJson).getHard());
         } else {
-            costWeight = validatorPrice.checkValueForPrice(jackson.loaderFile(oMapper, pathJson).getAverage());
+            return validatorPrice.checkValueForPrice(jackson.loaderFile(oMapper, pathJson).getAverage());
         }
-        return costWeight;
     }
 }

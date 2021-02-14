@@ -17,14 +17,25 @@ public class Price {
         return light;
     }
 
+    public void setLight(String light) {
+        this.light = light;
+    }
+
     public String getAverage() {
         return average;
+    }
+
+    public void setAverage(String average) {
+        this.average = average;
     }
 
     public String getHard() {
         return hard;
     }
 
+    public void setHard(String hard) {
+        this.hard = hard;
+    }
 }
 
 

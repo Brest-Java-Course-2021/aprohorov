@@ -16,22 +16,31 @@ public class ValidatorUserImpl implements ValidatorUser {
         this.scanner = new Scanner(System.in);
     }
 
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
     @Override
     public BigDecimal checkValue(String message) {
-        System.out.print(message);
-        BigDecimal value;
+
+        if (message != null) {
+            System.out.print(message);
+        } else {
+            throw new NullPointerException("Message is null!");
+        }
+        double value;
         do {
-            while (!scanner.hasNextBigDecimal()) {
+            while (!scanner.hasNextDouble()) {
                 System.out.println("Incorrect value! Please enter now) ");
                 scanner.next();
             }
-            value = scanner.nextBigDecimal();
-            if (value.intValueExact() < 1) {
+            value = scanner.nextDouble();
+            if (value < 1) {
                 System.out.println("Incorrect : value < 0");
             }
-        } while (value.intValueExact() < 1);
+        } while (value < 1);
 
-        return value;
+        return new BigDecimal(value);
     }
 
     // ------------------- 2й вариант -------------
