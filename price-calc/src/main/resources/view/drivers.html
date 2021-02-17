@@ -48,7 +48,8 @@
                     </li>
                 </ul>
                 <form class="d-flex" >
-                    <input class="form-control me-2" type="date" aria-label="Date">
+                    <input class="form-control me-2" name="dateBefore" type="date" aria-label="Date">
+                    <input class="form-control me-2"  name="dateAfter" type="date" aria-label="Date">
                     <button class="btn btn-outline-success text-nowrap" type="submit" >Search Birth Date</button>
                 </form>
             </div>
@@ -61,7 +62,7 @@
     <div class="container-xl">
         <div class="row justify-content-center">
             <div class="col-sm-2">
-                <h1>Drivers</h1>
+                <h1 class="text-decoration-underline">Drivers</h1>
             </div>
             <div class="col-sm-4 my-auto">
                 <a href="driver_edit.html" >
@@ -90,9 +91,7 @@
                         <a href="driver_edit.html">
                             <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i><span class="d-none d-md-inline">&nbsp;Edit</span></button>
                         </a>
-                        <a href="#">
-                            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i><span class="d-none d-md-inline">&nbspDelete</span></button>
-                        </a>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#delete" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i><span class="d-none d-md-inline">&nbspDelete</span></button>
                     </td>
                 </tr>
                 <tr>
@@ -105,9 +104,7 @@
                         <a href="driver_edit.html">
                             <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i><span class="d-none d-md-inline">&nbspEdit</span></button>
                         </a>
-                        <a href="#">
-                            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i><span class="d-none d-md-inline">&nbspDelete</span></button>
-                        </a>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#delete" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i><span class="d-none d-md-inline">&nbspDelete</span></button>
                     </td>
                 </tr>
                 <tr>
@@ -119,9 +116,28 @@
                         <a href="driver_edit.html">
                             <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i><span class="d-none d-md-inline">&nbsp;Edit</span></button>
                         </a>
-                        <a href="#">
-                            <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i><span class="d-none d-md-inline">&nbspDelete</span></button>
-                        </a>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#delete" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i><span class="d-none d-md-inline">&nbspDelete</span></button>
+
+                        <!--  Modal button delete                      -->
+                        <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="exampleModalLabel">Delete Driver</h6>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h4>Are you sure you want to delete information about this driver? </h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <a href="drivers.html">
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </table>
