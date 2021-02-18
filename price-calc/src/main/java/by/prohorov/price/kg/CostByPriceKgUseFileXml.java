@@ -18,13 +18,15 @@ public class CostByPriceKgUseFileXml extends CostByPriceKgAll {
     private String pathXml;
 
 
-    public CostByPriceKgUseFileXml(ValidatorUser validatorUser, ValidatorPrice validatorPrice, Jackson jackson,XmlMapper xMapper) {
+    public CostByPriceKgUseFileXml(ValidatorUser validatorUser, ValidatorPrice validatorPrice, Jackson jackson, XmlMapper xMapper) {
         super(validatorUser, validatorPrice);
         this.jackson = jackson;
         this.xMapper = xMapper;
     }
 
     public CostByPriceKgUseFileXml() {
+        jackson = new Jackson();
+        xMapper = new XmlMapper();
     }
 
     public void setPathXml(String pathXml) {

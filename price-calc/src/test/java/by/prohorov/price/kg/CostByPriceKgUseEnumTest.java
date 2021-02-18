@@ -14,6 +14,7 @@ class CostByPriceKgUseEnumTest {
 
     private CostByPriceKgUseEnum costKg;
 
+
     @BeforeEach
     void init() {
         costKg = new CostByPriceKgUseEnum();

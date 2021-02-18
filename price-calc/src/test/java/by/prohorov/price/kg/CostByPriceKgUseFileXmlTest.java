@@ -25,6 +25,7 @@ class CostByPriceKgUseFileXmlTest {
     void costByPriceWeightInKg_returnValues(double value, double result) {
         BigDecimal convertToDecimal = new BigDecimal(value);
         costKg.setCostWeight(convertToDecimal);
+        costKg.setPathXml("price/price_kg.xml");
         assertEquals(costKg.costByPriceWeightInKg().doubleValue(), result);
     }
 

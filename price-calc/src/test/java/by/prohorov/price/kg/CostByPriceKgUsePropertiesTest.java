@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class CostByPriceKgUseProprtiesTest {
+class CostByPriceKgUsePropertiesTest {
 
     private CostByPriceKgUseProperties costKg;
 
@@ -29,6 +29,7 @@ class CostByPriceKgUseProprtiesTest {
     void costByPriceWeightInKg_returnValues(double value, double result) {
         BigDecimal convertToDecimal = new BigDecimal(value);
         costKg.setCostWeight(convertToDecimal);
+        costKg.setPathProperties("price/price_kg.properties");
         assertEquals(costKg.costByPriceWeightInKg().doubleValue(), result);
     }
 

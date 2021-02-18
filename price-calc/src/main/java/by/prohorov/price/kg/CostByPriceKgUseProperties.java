@@ -14,10 +14,10 @@ import java.util.Properties;
 
 public class CostByPriceKgUseProperties extends CostByPriceKgAll {
 
-     private String pathProperties;
+    private String pathProperties;
 
     public CostByPriceKgUseProperties(ValidatorUser validatorUser, ValidatorPrice validatorPrice) {
-        super(validatorUser,validatorPrice);
+        super(validatorUser, validatorPrice);
     }
 
     public CostByPriceKgUseProperties() {

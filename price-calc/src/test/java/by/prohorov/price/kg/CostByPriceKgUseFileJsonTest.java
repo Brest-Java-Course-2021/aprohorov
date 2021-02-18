@@ -26,6 +26,7 @@ class CostByPriceKgUseFileJsonTest {
     void costByPriceWeightInKg_returnValues(double value, double result) {
         BigDecimal convertToDecimal = new BigDecimal(value);
         costKg.setCostWeight(convertToDecimal);
+        costKg.setPathJson("price/price_kg.json");
         assertEquals(costKg.costByPriceWeightInKg().doubleValue(), result);
     }
 

@@ -17,13 +17,15 @@ public class CostByPriceKgUseFileJson extends CostByPriceKgAll {
     private String pathJson;
     private ObjectMapper oMapper;
 
-    public CostByPriceKgUseFileJson(ValidatorUser validatorUser, ValidatorPrice validatorPrice,Jackson jackson,ObjectMapper oMapper) {
+    public CostByPriceKgUseFileJson(ValidatorUser validatorUser, ValidatorPrice validatorPrice, Jackson jackson, ObjectMapper oMapper) {
         super(validatorUser, validatorPrice);
         this.jackson = jackson;
         this.oMapper = oMapper;
     }
 
     public CostByPriceKgUseFileJson() {
+        jackson = new Jackson();
+        oMapper = new ObjectMapper();
     }
 
     public void setPathJson(String pathJson) {
@@ -32,7 +34,6 @@ public class CostByPriceKgUseFileJson extends CostByPriceKgAll {
 
     @Override
     public BigDecimal costByPriceWeightInKg() {
-
         if (costWeight.doubleValue() < 4) {
             return validatorPrice.checkValueForPrice(jackson.loaderFile(oMapper, pathJson).getLight());
         } else if (costWeight.doubleValue() > 10) {

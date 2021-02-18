@@ -2,10 +2,6 @@ package by.prohorov;
 
 import by.prohorov.calc.Calculate;
 import by.prohorov.calc.CalculateImpl;
-import by.prohorov.price.kg.CostByPriceKgUseEnum;
-import by.prohorov.price.kg.CostByPriceKgUseFileJson;
-import by.prohorov.price.kg.CostByPriceKgUseFileXml;
-import by.prohorov.price.kg.CostByPriceKgUseProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -21,7 +17,7 @@ public class Main {
         ApplicationContext context = new ClassPathXmlApplicationContext("ConfigSpring.xml");
 
 
-        Calculate result =  context.getBean("result",CalculateImpl.class);
+        Calculate result = context.getBean("result", CalculateImpl.class);
         System.out.println("Cost Of Delivery = " + result.costOfDelivery());
     }
 }

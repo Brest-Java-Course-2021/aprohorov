@@ -16,6 +16,7 @@ class JacksonTest {
     private ObjectMapper objectMapper;
     private XmlMapper xmlMapper;
 
+
     @BeforeEach
     void init() {
         jackson = new Jackson();
