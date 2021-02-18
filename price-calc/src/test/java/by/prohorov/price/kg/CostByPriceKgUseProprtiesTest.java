@@ -36,7 +36,7 @@ class CostByPriceKgUseProprtiesTest {
     void loaderPropertiesFile_throwIncorrectFileException_WhenValueNotFoundTheFile() {
         BigDecimal convertToDecimal = new BigDecimal(new Random().nextInt(40));
         costKg.setCostWeight(convertToDecimal);
-        costKg.setPath("price_incorrect_field.properties");
+        costKg.setPathProperties("price_incorrect_field.properties");
         assertThrows(IncorrectFileException.class, () -> costKg.costByPriceWeightInKg());
     }
 

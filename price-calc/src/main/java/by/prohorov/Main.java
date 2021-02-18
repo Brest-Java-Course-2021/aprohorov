@@ -2,12 +2,12 @@ package by.prohorov;
 
 import by.prohorov.calc.Calculate;
 import by.prohorov.calc.CalculateImpl;
-import by.prohorov.price.kg.CostByPriceKg;
-import by.prohorov.price.km.CostByPriceKm;
-import by.prohorov.price.km.CostByPriceKmImpl;
-import by.prohorov.price.select.SelectPrice;
-import by.prohorov.validate.ValidatorUser;
-import by.prohorov.validate.ValidatorUserImpl;
+import by.prohorov.price.kg.CostByPriceKgUseEnum;
+import by.prohorov.price.kg.CostByPriceKgUseFileJson;
+import by.prohorov.price.kg.CostByPriceKgUseFileXml;
+import by.prohorov.price.kg.CostByPriceKgUseProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 /**
@@ -18,12 +18,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ValidatorUser validatorUser = new ValidatorUserImpl();
+        ApplicationContext context = new ClassPathXmlApplicationContext("ConfigSpring.xml");
 
-        CostByPriceKm costKm = new CostByPriceKmImpl(validatorUser);
-        CostByPriceKg costKg = new SelectPrice().selectFromListPrice(validatorUser);
 
-        Calculate result = new CalculateImpl(costKm, costKg);
+        Calculate result =  context.getBean("result",CalculateImpl.class);
         System.out.println("Cost Of Delivery = " + result.costOfDelivery());
     }
 }

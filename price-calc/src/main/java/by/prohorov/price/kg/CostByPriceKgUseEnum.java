@@ -1,6 +1,7 @@
 package by.prohorov.price.kg;
 
 import by.prohorov.price.kg.enum_price.PriceKg;
+import by.prohorov.validate.ValidatorPrice;
 import by.prohorov.validate.ValidatorUser;
 
 import java.math.BigDecimal;
@@ -14,8 +15,8 @@ public class CostByPriceKgUseEnum extends CostByPriceKgAll {
     public CostByPriceKgUseEnum() {
     }
 
-    public CostByPriceKgUseEnum(ValidatorUser validatorUser) {
-        super(validatorUser);
+    public CostByPriceKgUseEnum(ValidatorUser validatorUser, ValidatorPrice validatorPrice) {
+        super(validatorUser, validatorPrice);
     }
 
     @Override

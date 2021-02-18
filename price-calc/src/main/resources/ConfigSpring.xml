@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="validatorUser" class="by.prohorov.validate.ValidatorUserImpl"/>
+    <bean id="validatorPrice" class="by.prohorov.validate.ValidatorPriceImpl"/>
+    <bean id="jackson" class="by.prohorov.price.parser.Jackson"/>
+    <bean id="oMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <bean id="xMapper" class="com.fasterxml.jackson.dataformat.xml.XmlMapper"/>
+
+
+
+    <bean id="costKgEnum" class="by.prohorov.price.kg.CostByPriceKgUseEnum">
+        <constructor-arg index="0" ref="validatorUser"/>
+        <constructor-arg index="1" ref="validatorPrice"/>
+    </bean>
+
+<!--    <bean id="costKgJson" class="by.prohorov.price.kg.CostByPriceKgUseFileJson">-->
+<!--        <constructor-arg index="0" ref="validatorUser"/>-->
+<!--        <constructor-arg index="1" ref="validatorPrice"/>-->
+<!--        <constructor-arg index="2" ref="jackson"/>-->
+<!--        <constructor-arg index="3" ref="oMapper"/>-->
+<!--        <property name="pathJson" value="price/price_kg.json"/>-->
+<!--    </bean>-->
+
+<!--<bean id="costKgXml" class="by.prohorov.price.kg.CostByPriceKgUseFileXml">-->
+<!--        <constructor-arg index="0" ref="validatorUser"/>-->
+<!--        <constructor-arg index="1" ref="validatorPrice"/>-->
+<!--        <constructor-arg index="2" ref="jackson"/>-->
+<!--        <constructor-arg index="3" ref="xMapper"/>-->
+<!--        <property name="pathXml" value="price/price_kg.xml"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="costKgProperties" class="by.prohorov.price.kg.CostByPriceKgUseProperties">-->
+<!--        <constructor-arg index="0" ref="validatorUser"/>-->
+<!--        <constructor-arg index="1" ref="validatorPrice"/>-->
+<!--        <property name="pathProperties" value="price/price_kg.properties"/>-->
+<!--    </bean>-->
+
+
+    <bean id="costKm" class="by.prohorov.price.km.CostByPriceKmImpl">
+        <constructor-arg index="0" ref="validatorUser"/>
+    </bean>
+
+
+    <bean id="result" class="by.prohorov.calc.CalculateImpl">
+        <constructor-arg index="0" ref="costKm"/>
+        <constructor-arg index="1" ref="costKgEnum"/>
+                            <!--  Select needed bean       -->
+<!--        <constructor-arg index="1" ref="costKgJson"/>-->
+<!--        <constructor-arg index="1" ref="costKgProperties"/>-->
+<!--        <constructor-arg index="1" ref="costKgXml"/>-->
+    </bean>
+
+
+</beans>

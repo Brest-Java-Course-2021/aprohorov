@@ -1,6 +1,7 @@
 package by.prohorov.price.kg;
 
 import by.prohorov.price.parser.Jackson;
+import by.prohorov.validate.ValidatorPrice;
 import by.prohorov.validate.ValidatorUser;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
@@ -12,15 +13,22 @@ import java.math.BigDecimal;
 
 public class CostByPriceKgUseFileXml extends CostByPriceKgAll {
 
-    private Jackson jackson = new Jackson();
-    private XmlMapper xMapper = new XmlMapper();
-    private String pathXml = "price/price_kg.xml";
+    private Jackson jackson;
+    private XmlMapper xMapper;
+    private String pathXml;
 
-    public CostByPriceKgUseFileXml(ValidatorUser validatorUser) {
-        super(validatorUser);
+
+    public CostByPriceKgUseFileXml(ValidatorUser validatorUser, ValidatorPrice validatorPrice, Jackson jackson,XmlMapper xMapper) {
+        super(validatorUser, validatorPrice);
+        this.jackson = jackson;
+        this.xMapper = xMapper;
     }
 
     public CostByPriceKgUseFileXml() {
+    }
+
+    public void setPathXml(String pathXml) {
+        this.pathXml = pathXml;
     }
 
     @Override
