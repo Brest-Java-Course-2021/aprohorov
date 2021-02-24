@@ -18,6 +18,7 @@ class CalculateImplTest {
     private CostByPriceKmImpl costKm;
     private CostByPriceKgUseEnum costKg;
 
+
     @BeforeEach
     void init() {
         costKm = new CostByPriceKmImpl();

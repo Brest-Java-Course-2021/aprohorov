@@ -13,23 +13,13 @@
             padding-top: 15px;
         }
 
-        .bg-navbar {
-            background-color: lightgrey;
-        }
-
-        .bi.bi-plus-square{
-            padding-right: 8px;
-        }
-
-        button {
-            border-radius: 20px;
-        }
     </style>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style_navbar.css"/>
 
     <title>Transports</title>
 </head>
@@ -50,7 +40,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="drivers.html">Drivers</a>
+                        <a class="nav-link" href="route.html">Route</a>
                     </li>
                 </ul>
                 <form class="d-flex" >
@@ -68,7 +58,7 @@
     <div class="container-xl">
     <div class="row">
         <div class="col-sm-3">
-            <h1 class="text-decoration-underline">Transports</h1>
+            <h1 class="text-decoration-underline">Transport</h1>
         </div>
         <div class="col-sm-2 my-auto">
             <a href="transport_edit.html" >
@@ -82,8 +72,8 @@
                 <thead>
                 <tr>
                     <th scope="col">Type</th>
-                    <th scope="col">Driver</th>
-                    <th scope="col">FuelType</th>
+                    <th scope="col">Fuel type</th>
+                    <th scope="col">Register number</th>
                     <th scope="col">Capacity</th>
                     <th scope="col">Date of manufacture</th>
                     <th scope="col"></th>
@@ -91,8 +81,8 @@
                 </thead>
                 <tr>
                     <td>Bus</td>
-                    <td>Dmitriy Ivanov</td>
                     <td>Gasoline</td>
+                    <td>2524 AD-1</td>
                     <td>87</td>
                     <td>12.02.2020</td>
                     <td>
@@ -105,8 +95,8 @@
                 <tr>
                 <tr>
                     <td>Tram</td>
-                    <td>Sergey Pohanenko</td>
                     <td>Electric</td>
+                    <td>2484 AN-1</td>
                     <td>52</td>
                     <td>12.02.2015</td>
                     <td>
@@ -118,8 +108,8 @@
                 </tr>
                 <tr>
                     <td>Trolley</td>
-                    <td>Artsiom Prokharau</td>
                     <td>Electric</td>
+                    <td>5421 AA-1</td>
                     <td>87</td>
                     <td>12.02.2012</td>
                     <td>
@@ -141,7 +131,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <a href="transports.html">
+                                        <a href="transport.html">
                                             <button type="button" class="btn btn-danger">Delete</button>
                                         </a>
                                     </div>

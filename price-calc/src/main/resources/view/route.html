@@ -14,18 +14,19 @@
             padding-top: 15px;
         }
 
-        .bg-navbar {
-            background-color: lightgrey;
-            padding-top: 5px;
+        .table{
+            text-align: center;
         }
+
     </style>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style_navbar.css"/>
 
-    <title>Drivers</title>
+    <title>Route</title>
 </head>
 <body>
 
@@ -44,13 +45,24 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="transports.html">Transports</a>
+                        <a class="nav-link" href="transport.html">Transport</a>
                     </li>
                 </ul>
                 <form class="d-flex" >
-                    <input class="form-control me-2" name="dateBefore" type="date" aria-label="Date">
-                    <input class="form-control me-2"  name="dateAfter" type="date" aria-label="Date">
-                    <button class="btn btn-outline-success text-nowrap" type="submit" >Search Birth Date</button>
+                    <input class="form-control-sm me-sm-2"  name="start" type="number" aria-label="Search">
+                    <input class="form-control-sm me-sm-2"  name="end" type="number" aria-label="Search">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Search Option
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><button class="dropdown-item" type="submit">Number route</button></li>
+                            <li><button class="dropdown-item" type="submit">Length</button></li>
+                            <li><button class="dropdown-item" type="submit">Lap time</button></li>
+                            <li><button class="dropdown-item" type="submit">Number of stops</button></li>
+                            <li><button class="dropdown-item" type="submit">Number of vehicles</button></li>
+                        </ul>
+                    </div>
                 </form>
             </div>
         </div>
@@ -62,33 +74,36 @@
     <div class="container-xl">
         <div class="row justify-content-center">
             <div class="col-sm-2">
-                <h1 class="text-decoration-underline">Drivers</h1>
+                <h1 class="text-decoration-underline">Route</h1>
             </div>
             <div class="col-sm-4 my-auto">
-                <a href="driver_edit.html" >
-                    <button type="button" class="btn btn-success btn-group"><i class="bi bi-plus-square"></i><span class="d-none d-md-inline">&nbsp;New Driver</span></button>
+                <a href="route_edit.html" >
+                    <button type="button" class="btn btn-success btn-group"><i class="bi bi-plus-square"></i><span class="d-none d-md-inline">&nbsp;New Route</span></button>
                 </a>
             </div>
             <div class="col-sm-6"></div>
         </div>
         <div class="row">
-            <table class="table table-hover">
+            <table class="table table-hover" >
                 <thead>
                 <tr>
-                    <th scope="col">Personnel Number</th>
-                    <th scope="col">Full Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Birth Date</th>
-                    <th scope="col"></th>
+                    <th scope="col">Number route</th>
+                    <th scope="col">Length (km)</th>
+                    <th scope="col">Lap time (min)</th>
+                    <th scope="col">Number of stops </th>
+                    <th scope="col">Number of vehicles </th>
                 </tr>
                 </thead>
                 <tr>
-                    <td>2322</td>
-                    <td>Sergey Pohanenko</td>
-                    <td>Pinsk st. Rosinka 23</td>
-                    <td>11.02.1991</td>
+                    <td>1</td>
+                    <td>5.3</td>
+                    <td>48</td>
+                    <td>14</td>
                     <td>
-                        <a href="driver_edit.html">
+                        <a href="transport.html" class="link-info">5</a>
+                    </td>
+                    <td>
+                        <a href="route_edit.html">
                             <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i><span class="d-none d-md-inline">&nbsp;Edit</span></button>
                         </a>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#delete" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i><span class="d-none d-md-inline">&nbspDelete</span></button>
@@ -96,24 +111,26 @@
                 </tr>
                 <tr>
                 <tr>
-                    <td>433432</td>
-                    <td>Artsiom Prokharau</td>
-                    <td>Brest st. Pokrovskaya 8</td>
-                    <td>17.07.1992</td>
+                <td>2</td>
+                <td>2.7</td>
+                <td>24</td>
+                <td>8</td>
+                <td>3</td>
                     <td>
-                        <a href="driver_edit.html">
+                        <a href="route_edit.html">
                             <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i><span class="d-none d-md-inline">&nbspEdit</span></button>
                         </a>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#delete" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i><span class="d-none d-md-inline">&nbspDelete</span></button>
                     </td>
                 </tr>
                 <tr>
-                    <td>32213</td>
-                    <td>Dmitriy Ivanov</td>
-                    <td>Minsk st. Borodina 12/4</td>
-                    <td>12.11.1978</td>
+                    <td>5</td>
+                    <td>3.4</td>
+                    <td>36</td>
+                    <td>18</td>
+                    <td>2</td>
                     <td>
-                        <a href="driver_edit.html">
+                        <a href="route_edit.html">
                             <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-pencil"></i><span class="d-none d-md-inline">&nbsp;Edit</span></button>
                         </a>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#delete" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i><span class="d-none d-md-inline">&nbspDelete</span></button>
@@ -123,15 +140,15 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h6 class="modal-title" id="exampleModalLabel">Delete Driver</h6>
+                                        <h6 class="modal-title" id="exampleModalLabel">Delete Route</h6>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <h4>Are you sure you want to delete information about this driver? </h4>
+                                        <h4>Are you sure you want to delete information about this route? </h4>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <a href="drivers.html">
+                                        <a href="route.html">
                                             <button type="button" class="btn btn-danger">Delete</button>
                                         </a>
                                     </div>
